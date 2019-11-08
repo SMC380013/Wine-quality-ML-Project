@@ -2,43 +2,130 @@
 <html >
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
+  
   <meta charset="UTF-8">
   <title>Vinho Verde Quality</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel="stylesheet" href="../statstyle.css" type=text/css> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+​
+  <!-- scroll bar  -->
   
 </head>
-
+​
 <body>
- <div class="login">
-	<h1>A complete technical guide to Portuguese "Vinho Verde" wine </h1>
-
+​
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="{{ url_for('static', filename='images/wine.png') }}">
+      </div>
+    </div>
+  </div>
+​
+<div class="row"></div>
+​
+ <div class="container">
+  <!-- <div class="login"> -->
+	<h1>A Complete Technical Guide for Portuguese "Vinho Verde" Wine</h1>
+​
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="fixed acidity" placeholder="Fixed Acidity" required="required" />
-	<input type="text" name="volatile acidity" placeholder="Volatile Acidity" required="required" />
-	<input type="text" name="citric acid" placeholder="Citric Acid" required="required" />
-	<input type="text" name="residual sugar" placeholder="Residual Sugar" required="required" />
-	<input type="text" name="chlorides" placeholder="Chlorides" required="required" />
-	<input type="text" name="free sulfur dioxide" placeholder="Free Sulfur Dioxide" required="required" />
-	<input type="text" name="total sulfur dioxide" placeholder="Total Sulfur Dioxide" required="required" />
-	<input type="text" name="density" placeholder="Density" required="required" />
-	<input type="text" name="pH" placeholder="pH" required="required" />
-        <input type="text" name="sulphates" placeholder="Sulphates" required="required" />
-        <input type="text" name="alcohol" placeholder="Alcohol" required="required" />
-    
+      <div class="form-group">
+        <label for="alcohol">Alcohol</label>
+        <input class="form-control" id="alcohol" type="text" name="alcohol" placeholder="Choose a float between 4 and 6" required="required" /> 
+        
+        <!-- <span class="infotext" style="color: white;">Choose integer between 0 and 30</span> -->
+      </div>
+​
+      <!-- <div class="preference"> -->
+        <div class="form-group">
+        <label for="sulphates">Sulphates</label>
+        <input class="form-control" id="sulphates" type="text" name="sulphates" placeholder="Choose a float between 0 and 3" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+      </div>
+​
+      <!-- <div class="preference"> -->
+        <div class="form-group">
+        <label for="total sulfur dioxide">Total Sulfur Dioxide</label>
+        <input class="form-control" id="total sulfur dioxide" type="text" name="total sulfur dioxide" placeholder="Choose an integer between 6 and 289" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+      <!-- <div class="preference"> -->
+        <div class="form-group">
+        <label for="volatile acidity">Volatile Acidity</label>
+        <input class="form-control" id="volatile acidity" type="text" name="volatile acidity" placeholder="Choose a float between 0 and 2" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+       
+      </div>
+​
+      <!-- <div class="preference"> -->
+        <div class="form-group">
+        <label for="chlorides">Chlorides</label>
+        <input class="form-control" id="chlorides" type="text" name="chlorides" placeholder="Choose a float between 0 and 1" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+      <!-- <div class="preference"> -->
+        <div class="form-group">
+        <label for="citric acid">Citric Acid</label>
+        <input class="form-control" id="citric acid" type="text" name="citric acid" placeholder="Choose a float between 0 and 1" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+        <div class="form-group">
+        <label for="fixed acidity">Fixed Acidity</label>
+        <input class="form-control" id="fixed acidity" type="text" name="fixed acidity" placeholder="Choose a float between 4 and 16" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+      <div class="form-group">
+        <label for="ph">pH</label>
+        <input class="form-control" id="ph" type="text" name="pH" placeholder="Choose a float between 2 and 5" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+      <div class="form-group">
+          <label for="density">Density</label>
+        <input class="form-control" id="density" type="text" name="density" placeholder="Choose a float between 0.98 and 1.01" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+      <div class="form-group">
+          <label for="residual sugar">Residual Sugar</label>
+        <input class="form-control" id="residual sugar" type="text" name="residual sugar" placeholder="Choose a float between 0 and 16" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
+​
+      <div class="form-group">
+        <label for="free sulfur dioxide">Free Sulfur Dioxide</label>
+        <input class="form-control" id="free sulfur dioxide" type="text" name="free sulfur dioxide" placeholder="Choose an integer between 0 and 73" required="required" />
+        <!-- <span class="infotext" style="color: white;"></span> -->
+        
+      </div>
         <button type="SUBMIT" class="btn btn-primary btn-block btn-large">Predict Quality Based On Your Above Selection</button>
     </form>
-
+​
    <br>
    <br>
    {{ prediction_text }}
-
+​
  </div>
-
-
+​
+​
+ <!-- <script src="{{ url_for('static', filename='js/main.js') }}"></script> -->
 </body>
 </html>
