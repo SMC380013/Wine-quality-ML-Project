@@ -7,8 +7,11 @@ import keras
 
 from flask import Flask, request, redirect, render_template, url_for, jsonify
 
-from tensorflow.keras.models import load_model
-redwinequality_model = load_model("redwinequality_model_trained.h5")
+# from tensorflow.keras.models import load_model
+# redwinequality_model = load_model("redwinequality_model_trained.h5")
+
+from joblib import dump, load
+redwinequality_model = load('redwinerandom.joblib') 
 
 app = Flask(__name__)
 
@@ -27,7 +30,8 @@ def predict():
     #final_features = np.reshape(final_features, 11)
     
     print('Final features', final_features)
-    prediction = redwinequality_model.predict_classes([final_features])
+#     prediction = redwinequality_model.predict_classes([final_features])
+  prediction = redwinequality_model.predict([final_features])
     #prediction = [3]
     print("Prediction", prediction)
 
