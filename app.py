@@ -31,7 +31,7 @@ def predict():
     
     print('Final features', final_features)
 #     prediction = redwinequality_model.predict_classes([final_features])
-  prediction = redwinequality_model.predict([final_features])
+      prediction = redwinequality_model.predict([final_features])
     #prediction = [3]
     print("Prediction", prediction)
 
